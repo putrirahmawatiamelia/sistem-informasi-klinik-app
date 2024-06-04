@@ -19,6 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Tambah Data Pegawai', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Laporan Data Pegawai', ['laporan'], ['class' => 'btn btn-info']) ?>
     </p>
 
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -30,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id_pegawai',
             'nama',
+            'jenis_kelamin',
             'alamat:ntext',
             'tanggal_lahir',
             [

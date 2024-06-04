@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id_pegawai',
             'nama',
+            'jenis_kelamin',
             'alamat:ntext',
             'tanggal_lahir',
         ],

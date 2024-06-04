@@ -13,6 +13,11 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'nama')->textInput(['maxlength' => true, 'placeholder' => 'Nama Lengkap']) ?>
+    
+    <?= $form->field($model, 'jenis_kelamin')->dropDownList([
+        'Laki-laki' => 'Laki-laki',
+        'Perempuan' => 'Perempuan',
+    ], ['prompt' => 'Pilih Jenis Kelamin']) ?>
 
     <?= $form->field($model, 'alamat')->textarea(['rows' => 6]) ?>
 

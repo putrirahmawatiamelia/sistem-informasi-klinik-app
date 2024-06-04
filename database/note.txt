@@ -1,0 +1,5 @@
+Aplikasi ini belum sepenuhnya selesai, ada beberapa fungsi yang belum selesai yaitu:
+
+1. Login auth RBAC, sesuai hak akses user
+2. Transaksi tindakan => terdapat logic error pada Controller
+3. Pembayaran setelah transaksi tindakan

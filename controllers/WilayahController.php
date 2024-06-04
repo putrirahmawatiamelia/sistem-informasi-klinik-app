@@ -2,17 +2,17 @@
 
 namespace app\controllers;
 
-use app\models\Pegawai;
-use app\models\PegawaiSearch;
+use app\models\Wilayah;
+use app\models\WilayahSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
 
 /**
- * PegawaiController implements the CRUD actions for Pegawai model.
+ * WilayahController implements the CRUD actions for Wilayah model.
  */
-class PegawaiController extends Controller
+class WilayahController extends Controller
 {
     /**
      * @inheritDoc
@@ -33,26 +33,13 @@ class PegawaiController extends Controller
     }
 
     /**
-     * Lists all Pegawai models.
+     * Lists all Wilayah models.
      *
      * @return string
      */
-
-     // Fungsi Laporan Grafik
-     public function actionLaporan()
-     {
-         $dataProvider = new ActiveDataProvider([
-             'query' => Pegawai::find(),
-         ]);
- 
-         return $this->render('laporan', [
-             'dataProvider' => $dataProvider,
-         ]);
-     }
-
     public function actionIndex()
     {
-        $searchModel = new PegawaiSearch();
+        $searchModel = new WilayahSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -62,30 +49,43 @@ class PegawaiController extends Controller
     }
 
     /**
-     * Displays a single Pegawai model.
-     * @param int $id_pegawai Id Pegawai
+     * Displays a single Wilayah model.
+     * @param int $id_wilayah Id Wilayah
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id_pegawai)
+
+    // Fungsi Laporan Grafik
+    public function actionLaporan()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Wilayah::find(),
+        ]);
+
+        return $this->render('laporan', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionView($id_wilayah)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id_pegawai),
+            'model' => $this->findModel($id_wilayah),
         ]);
     }
 
     /**
-     * Creates a new Pegawai model.
+     * Creates a new Wilayah model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Pegawai();
+        $model = new Wilayah();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id_pegawai' => $model->id_pegawai]);
+                return $this->redirect(['view', 'id_wilayah' => $model->id_wilayah]);
             }
         } else {
             $model->loadDefaultValues();
@@ -97,18 +97,18 @@ class PegawaiController extends Controller
     }
 
     /**
-     * Updates an existing Pegawai model.
+     * Updates an existing Wilayah model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id_pegawai Id Pegawai
+     * @param int $id_wilayah Id Wilayah
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id_pegawai)
+    public function actionUpdate($id_wilayah)
     {
-        $model = $this->findModel($id_pegawai);
+        $model = $this->findModel($id_wilayah);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_pegawai' => $model->id_pegawai]);
+            return $this->redirect(['view', 'id_wilayah' => $model->id_wilayah]);
         }
 
         return $this->render('update', [
@@ -117,29 +117,29 @@ class PegawaiController extends Controller
     }
 
     /**
-     * Deletes an existing Pegawai model.
+     * Deletes an existing Wilayah model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id_pegawai Id Pegawai
+     * @param int $id_wilayah Id Wilayah
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id_pegawai)
+    public function actionDelete($id_wilayah)
     {
-        $this->findModel($id_pegawai)->delete();
+        $this->findModel($id_wilayah)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Pegawai model based on its primary key value.
+     * Finds the Wilayah model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id_pegawai Id Pegawai
-     * @return Pegawai the loaded model
+     * @param int $id_wilayah Id Wilayah
+     * @return Wilayah the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id_pegawai)
+    protected function findModel($id_wilayah)
     {
-        if (($model = Pegawai::findOne(['id_pegawai' => $id_pegawai])) !== null) {
+        if (($model = Wilayah::findOne(['id_wilayah' => $id_wilayah])) !== null) {
             return $model;
         }
 

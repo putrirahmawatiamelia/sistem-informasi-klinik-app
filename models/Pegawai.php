@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id_pegawai
  * @property string $nama
+ * @property string $jenis_kelamin
  * @property string|null $alamat
  * @property string|null $tanggal_lahir
  */
@@ -29,6 +30,7 @@ class Pegawai extends \yii\db\ActiveRecord
     {
         return [
             [['nama'], 'required'],
+            [['jenis_kelamin'], 'required'],
             [['alamat'], 'string'],
             [['tanggal_lahir'], 'safe'],
             [['nama'], 'string', 'max' => 255],
@@ -43,6 +45,7 @@ class Pegawai extends \yii\db\ActiveRecord
         return [
             'id_pegawai' => 'Id Pegawai',
             'nama' => 'Nama',
+            'jenis_kelamin' => 'Jenis Kelamin',
             'alamat' => 'Alamat',
             'tanggal_lahir' => 'Tanggal Lahir',
         ];
